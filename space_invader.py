@@ -45,8 +45,8 @@ for i in range(num_of_enemies):
     enemy_img = pygame.image.load('alien_nanu2.0.png').convert_alpha()
     enemy_img = pygame.transform.scale(enemy_img, (100,100))
     enemy_image.append(enemy_img)
-    enemyX.append(random.randint(0,width)) #width
-    enemyY.append(random.randint(-300,50)) #height
+    enemyX.append(random.randint(-width/2,width/2)) #width
+    enemyY.append(random.randint(-300,150)) #height
     enemyX_change.append(3)
     enemyY_change.append(20)
 
@@ -79,7 +79,7 @@ def fire_bullet(x,y):
 
 def isCollision(enemyX,enemyY,bulletX,bulletY):
     distance = math.sqrt((math.pow(enemyX-bulletX,2) )+ (math.pow(enemyY-bulletY,2)))
-    if distance < 27:
+    if distance < 50:
         return True
     else:
         return False
